@@ -1,0 +1,14 @@
+diff --git a/node_modules/@uniswap/v3-core/contracts/libraries/FullMath.sol b/node_modules/@uniswap/v3-core/contracts/libraries/FullMath.sol
+index 8688a17..9f2bd74 100644
+--- a/node_modules/@uniswap/v3-core/contracts/libraries/FullMath.sol
++++ b/node_modules/@uniswap/v3-core/contracts/libraries/FullMath.sol
+@@ -61,7 +61,8 @@ library FullMath {
+         // Factor powers of two out of denominator
+         // Compute largest power of two divisor of denominator.
+         // Always >= 1.
+-        uint256 twos = -denominator & denominator;
++//        uint256 twos = -denominator & denominator;
++        uint256 twos = denominator & (~denominator + 1);
+         // Divide denominator by power of two
+         assembly {
+             denominator := div(denominator, twos)
