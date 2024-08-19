@@ -36,6 +36,10 @@ For foundry setup [here](https://book.getfoundry.sh/getting-started/installation
 
 * One line change is needed in node_modules/@uniswap/v3-core/contracts/libraries/FullMath.sol to make compilation working see -> https://ethereum.stackexchange.com/questions/96642/unary-operator-minus-cannot-be-applied-to-type-uint256
 
+```solidity
+uint256 twos = denominator & (~denominator + 1);
+```
+
 ## Tests
 
 Tests were initially done using Hardhat and then new ones with Foundry. Foundry tests are located in `test/foundry/` and are the ones that should be used for testing new features.

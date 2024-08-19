@@ -268,7 +268,8 @@ const resetFork = async (blockNumber) => {
     params: [
       {
         forking: {
-          jsonRpcUrl: `https://eth-mainnet.alchemyapi.io/v2/${hre.env('ALCHEMY_API_KEY')}`,
+          // jsonRpcUrl: `https://eth-mainnet.alchemyapi.io/v2/${hre.env('ALCHEMY_API_KEY')}`,
+          jsonRpcUrl: hre.env('TENDERLY_VIRTUAL_TESTNET_RPC_URL'),
           blockNumber,
         }
       }

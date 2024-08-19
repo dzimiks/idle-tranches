@@ -96,6 +96,11 @@ module.exports = {
       },
     }
   },
+  tenderly: {
+    project: 'vnets',
+    username: 'dzimiks-tenderly',
+    accessKey: process.env.TENDERLY_ACCESS_TOKEN || '',
+  },
   networks: {
     hardhat: {
       allowUnlimitedContractSize: true,
@@ -161,7 +166,15 @@ module.exports = {
       url: `https://eth-kovan.alchemyapi.io/v2/${process.env.ALCHEMY_API_KEY}`,
     },
     mainnet: {
-      url: `https://eth-mainnet.alchemyapi.io/v2/${process.env.ALCHEMY_API_KEY}`,
+      // url: `https://eth-mainnet.alchemyapi.io/v2/${process.env.ALCHEMY_API_KEY}`,
+      url: process.env.TENDERLY_VIRTUAL_TESTNET_RPC_URL || '',
+      gasPrice: 'auto',
+      gas: 'auto',
+      gasMultiplier: 1.1,
+      timeout: 1200000
+    },
+    virtualMainnet: {
+      url: process.env.TENDERLY_VIRTUAL_TESTNET_RPC_URL || '',
       gasPrice: 'auto',
       gas: 'auto',
       gasMultiplier: 1.1,
