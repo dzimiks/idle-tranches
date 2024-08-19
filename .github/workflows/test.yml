@@ -42,6 +42,7 @@ jobs:
 
       - name: Run Forge tests
         env:
+          ETH_RPC_URL: ${{ secrets.ETH_RPC_URL }}
           ETHERSCAN_API_KEY: ${{ secrets.ETHERSCAN_API_KEY }}
           TENDERLY_ACCESS_TOKEN: ${{ secrets.TENDERLY_ACCESS_TOKEN }}
           TENDERLY_VIRTUAL_TESTNET_RPC_URL: ${{ secrets.TENDERLY_VIRTUAL_TESTNET_RPC_URL }}
